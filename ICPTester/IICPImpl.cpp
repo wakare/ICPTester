@@ -10,7 +10,6 @@ namespace ICPTest
 	ICPPCLImpl::ICPPCLImpl()
 	{
 		 m_pPCLICP.reset(new pcl::IterativeClosestPointWithNormals<pcl::PointNormal, pcl::PointNormal>);
-		// Init ICP config
 	}
 
 	unsigned ICPPCLImpl::DoICP(const IFrame& newFrame, ICPMatrix4& outPose)
@@ -29,10 +28,10 @@ namespace ICPTest
 
 			// Profile
 			auto now = ICPClock::now();
-			m_pPCLICP->align(*pcd_aligned, ICPMatrix4::Identity());
+			m_pPCLICP->align(*pcd_aligned, m_pPCLICP->getFinalTransformation());
 			costtime = std::chrono::duration_cast<std::chrono::microseconds>(ICPClock::now() - now).count();
 
-			outPose = lastPose * m_pPCLICP->getFinalTransformation();
+			outPose = /*lastPose * */m_pPCLICP->getFinalTransformation();
 			lastFrame = pcd_aligned;
 			lastPose = outPose;
 		}

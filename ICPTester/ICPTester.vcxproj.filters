@@ -53,13 +53,7 @@
     <ClInclude Include="ICPResult.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="HeapBuffer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Visualizator.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ICPConfig.h">

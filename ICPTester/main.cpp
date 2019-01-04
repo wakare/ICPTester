@@ -1,6 +1,7 @@
 #include "ICPTester.h"
 #include "Visualizator.h"
-#include "Renderer.h"
+#include <windows.h>
+#include <thread>
 
 using namespace ICPTest;
 using namespace Leviathan;

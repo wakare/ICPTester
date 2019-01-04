@@ -72,6 +72,8 @@ namespace ICPTest
 				break;
 			}
 
+			m_ICPResult.AddFrameResult(std::make_pair(&newFrame, GlobalPose));
+
 			ICPTime += costtime;
 
 			if (m_updateCallback)

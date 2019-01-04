@@ -1,8 +1,9 @@
 #include "DataLoader.h"
 #include "Frame.h"
-#include "HeapBuffer.h"
+#include "ICPTestGlobalDef.h"
 #include <fstream>
 #include "TriMesh.h"
+#include "DynamicArray.h"
 
 using namespace trimesh;
 
@@ -91,8 +92,8 @@ namespace ICPTest
 		frameFile.getline(line, sizeof(line));
 		frameFile.getline(line, sizeof(line));
 
-		HeapBuffer<float> databuffer(vertexCount * 6 * sizeof(float));
-		float* pData = databuffer.GetData();
+		Leviathan::DynamicArray<float> databuffer(vertexCount * 6 * sizeof(float));
+		float* pData = databuffer.m_pData;
 
 		// Load XYZ & NXYZ
 		for (unsigned i = 0; i < vertexCount * 7; i++)

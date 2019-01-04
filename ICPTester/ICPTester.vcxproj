@@ -190,13 +190,11 @@
     <ClInclude Include="DataLoader.h" />
     <ClInclude Include="Frame.h" />
     <ClInclude Include="ICPTestGlobalDef.h" />
-    <ClInclude Include="HeapBuffer.h" />
     <ClInclude Include="ICPConfig.h" />
     <ClInclude Include="ICPResult.h" />
     <ClInclude Include="ICPTester.h" />
     <ClInclude Include="IICP.h" />
     <ClInclude Include="IICPImpl.h" />
-    <ClInclude Include="Renderer.h" />
     <ClInclude Include="Visualizator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

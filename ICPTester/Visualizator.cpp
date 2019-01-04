@@ -1,7 +1,8 @@
 #include "Visualizator.h"
 #include "RenderService.h"
-#include "CCommonScene.h"
+#include "CommonScene.h"
 #include "DynamicArray.h"
+#include "PointCloudScene.h"
 #include <windows.h>
 
 using namespace Leviathan;
@@ -37,7 +38,7 @@ namespace ICPTest
 	{
 		auto _addPointCloudRequest = [&service, &refPointCloud]()
 		{
-			service.GetScene()->UpdatePointCloud(refPointCloud);
+			dynamic_cast<Leviathan::PointCloudScene&>(*service.GetScene()).UpdatePointCloud(refPointCloud);
 		};
 
 		EXIT_GET_FALSE(service.GetScene()->PushDataUpdateRequest(_addPointCloudRequest));

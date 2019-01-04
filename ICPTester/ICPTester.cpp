@@ -37,14 +37,14 @@ namespace ICPTest
 			m_pVisualizator->Update(newFrame, transform);
 		};
 
-		m_pICPConfig->m_maxCorrespondenceDistance = 300.0f;
+		m_pICPConfig->m_maxCorrespondenceDistance = 6000.0f;
 		m_pICPConfig->m_maxIterationCount = 200;
 		m_pICPConfig->m_euclideanFitnessEpsilon = 1e-5;
 		m_pICPConfig->m_transformationEpsilon = 1e-10;
 		m_pICPConfig->m_useReciprocalCorrespondences = true;
 
 		// config parameter error ?
-		// m_pICPImpl->ApplyICPConfig(*m_pICPConfig);
+		m_pICPImpl->ApplyICPConfig(*m_pICPConfig);
 	}
 
 	void ICPTester::DoICP()
@@ -58,9 +58,6 @@ namespace ICPTest
 
 		for (unsigned currentFrameIndex = 0; currentFrameIndex < m_pDataLoader->FrameCount(); currentFrameIndex++)
 		{ 
-			// Debug
-			Sleep(100);
-
 			auto& newFrame = m_pDataLoader->GetAFrame(currentFrameIndex);
 			if (!newFrame.IsValid())
 			{

@@ -113,7 +113,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>trimeshd.lib;RenderService.lib;assimp-vc140-mt.lib;Scene.lib;FileImporter.lib;opengl32.lib;RenderWrapper.lib;glew.lib;SOIL.lib;glfw3.lib;RenderWindow.lib;Base.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)3rdparty\trimesh2_2.13\lib.Win64.vs141;$(SolutionDir)bin\x64\$(TargetPlatform)\$(Configuration);C:\Users\wangjie\source\repos\ICPTester\x64\Debug</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(Configuration);$(SolutionDir)3rdparty\trimesh2_2.13\lib.Win64.vs141;$(SolutionDir)bin\x64\$(TargetPlatform)\$(Configuration);C:\Users\wangjie\source\repos\ICPTester\x64\Debug</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -131,7 +131,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>trimeshd.lib;RenderService.lib;assimp-vc140-mt.lib;Scene.lib;FileImporter.lib;opengl32.lib;RenderWrapper.lib;glew.lib;SOIL.lib;glfw3.lib;RenderWindow.lib;Base.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)3rdparty\trimesh2_2.13\lib.Win64.vs141;$(SolutionDir)3rdparty\flann-1.8.4\build_vs2015\lib$(Configuration);$(SolutionDir)3rdparty\boost_1_64_0\build_vs2015\lib;$(SolutionDir)3rdparty\pcl-1.8.1\build_vs2015\lib;C:\Users\wangjie\source\repos\ICPTester\x64\Debug</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(Configuration);$(SolutionDir)3rdparty\trimesh2_2.13\lib.Win64.vs141;$(SolutionDir)3rdparty\flann-1.8.4\build_vs2015\lib$(Configuration);$(SolutionDir)3rdparty\boost_1_64_0\build_vs2015\lib;$(SolutionDir)3rdparty\pcl-1.8.1\build_vs2015\lib;C:\Users\wangjie\source\repos\ICPTester\x64\Debug</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -153,7 +153,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>trimesh.lib;RenderService.lib;assimp-vc140-mt.lib;Scene.lib;FileImporter.lib;opengl32.lib;RenderWrapper.lib;glew.lib;SOIL.lib;glfw3.lib;RenderWindow.lib;Base.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)3rdparty\trimesh2_2.13\lib.Win64.vs141;$(SolutionDir)bin\x64\$(TargetPlatform)\$(Configuration);C:\Users\wangjie\source\repos\ICPTester\x64\Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(Configuration);$(SolutionDir)3rdparty\trimesh2_2.13\lib.Win64.vs141;$(SolutionDir)bin\x64\$(TargetPlatform)\$(Configuration);C:\Users\wangjie\source\repos\ICPTester\x64\Release</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -175,12 +175,13 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>trimesh.lib;RenderService.lib;assimp-vc140-mt.lib;Scene.lib;FileImporter.lib;opengl32.lib;RenderWrapper.lib;glew.lib;SOIL.lib;glfw3.lib;RenderWindow.lib;Base.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)3rdparty\trimesh2_2.13\lib.Win64.vs141;$(SolutionDir)3rdparty\flann-1.8.4\build_vs2015\lib$(Configuration);$(SolutionDir)3rdparty\boost_1_64_0\build_vs2015\lib;$(SolutionDir)3rdparty\pcl-1.8.1\build_vs2015\lib;C:\Users\wangjie\source\repos\ICPTester\x64\Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(Configuration);$(SolutionDir)3rdparty\trimesh2_2.13\lib.Win64.vs141;$(SolutionDir)3rdparty\flann-1.8.4\build_vs2015\lib$(Configuration);$(SolutionDir)3rdparty\boost_1_64_0\build_vs2015\lib;$(SolutionDir)3rdparty\pcl-1.8.1\build_vs2015\lib;C:\Users\wangjie\source\repos\ICPTester\x64\Release</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DataLoader.cpp" />
     <ClCompile Include="Frame.cpp" />
+    <ClCompile Include="ICPErrorEstimator.cpp" />
     <ClCompile Include="ICPTester.cpp" />
     <ClCompile Include="IICPImpl.cpp" />
     <ClCompile Include="main.cpp" />
@@ -189,6 +190,7 @@
   <ItemGroup>
     <ClInclude Include="DataLoader.h" />
     <ClInclude Include="Frame.h" />
+    <ClInclude Include="ICPErrorEstimator.h" />
     <ClInclude Include="ICPTestGlobalDef.h" />
     <ClInclude Include="ICPConfig.h" />
     <ClInclude Include="ICPResult.h" />

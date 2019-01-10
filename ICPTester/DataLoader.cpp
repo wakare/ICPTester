@@ -9,21 +9,23 @@ using namespace trimesh;
 
 namespace ICPTest
 {
-	DataLoader::DataLoader(const char* dataFolder, EDataLoaderType type):
+	DataLoader::DataLoader(const char* dataFolder, EDataLoaderType type, int startIndex/* = -1*/, int endIndex/* = -1*/):
 		m_eDataLoadType(type)
 	{
-		if (!Load(dataFolder))
+		if (!Load(dataFolder, startIndex, endIndex))
 		{
 			throw "exception";
 		}
 	}
 
-	bool DataLoader::Load(const char * dataFolder)
+	bool DataLoader::Load(const char* dataFolder, int startIndex, int endIndex)
 	{
 		char buf[512];
 		unsigned uCurrentFrameIndex = 0;
 
-		while (true)
+		startIndex = (startIndex > 0) ? startIndex : 0;
+		
+		while (endIndex < 0 || (startIndex++) <= endIndex)
 		{
 			snprintf(buf, sizeof(buf), "%s//frame_%04d.ply", dataFolder, uCurrentFrameIndex++);
 

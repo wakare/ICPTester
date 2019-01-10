@@ -17,8 +17,8 @@ namespace ICPTest
 	class DataLoader
 	{
 	public:
-		DataLoader(const char* dataFolder, EDataLoaderType type);
-		bool Load(const char* dataFolder);
+		DataLoader(const char* dataFolder, EDataLoaderType type, int startIndex = -1, int endIndex = -1);
+		bool Load(const char* dataFolder, int startIndex, int endIndex);
 		const IFrame& GetAFrame(unsigned index);
 		unsigned FrameCount() const;
 

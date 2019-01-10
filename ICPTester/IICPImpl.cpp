@@ -9,7 +9,7 @@ namespace ICPTest
 
 	ICPPCLImpl::ICPPCLImpl()
 	{
-		 m_pPCLICP.reset(new pcl::IterativeClosestPointWithNormals<pcl::PointNormal, pcl::PointNormal>);
+		 m_pPCLICP.reset(new pcl::IterativeClosestPointWithNormals<pcl::PointNormal, pcl::PointNormal, ICPScalar>);
 	}
 
 	unsigned ICPPCLImpl::DoICP(const IFrame& newFrame, ICPMatrix4& outPose)
@@ -51,14 +51,12 @@ namespace ICPTest
 		EXIT_GET_FALSE((&pclFrame));
 
 		(type == ICPSDT_SOURCE) ?  m_pPCLICP->setInputSource(pclFrame.GetPoints()) : m_pPCLICP->setInputTarget(pclFrame.GetPoints());
-
 		return true;
 	}
 
 	bool ICPPCLImpl::_setFrameData(pcl::PointCloud<pcl::PointNormal>::Ptr pFrame, ICPSetDataType type)
 	{
 		(type == ICPSDT_SOURCE) ? m_pPCLICP->setInputSource(pFrame) : m_pPCLICP->setInputTarget(pFrame);
-
 		return true;
 	}
 

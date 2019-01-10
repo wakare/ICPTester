@@ -6,6 +6,7 @@
 #define BOOST_TYPEOF_EMULATION
 #include <pcl/registration/icp.h>
 #include <pcl/point_types.h>
+#include "ICPTestGlobalDef.h"
 
 namespace ICPTest
 {
@@ -23,7 +24,7 @@ namespace ICPTest
 		bool _setFrameData(const IFrame& frame, ICPSetDataType type);
 		bool _setFrameData(pcl::PointCloud<pcl::PointNormal>::Ptr pFrame, ICPSetDataType type);
 
-		pcl::IterativeClosestPointWithNormals<pcl::PointNormal, pcl::PointNormal>::Ptr m_pPCLICP;
+		pcl::IterativeClosestPointWithNormals<pcl::PointNormal, pcl::PointNormal, ICPScalar>::Ptr m_pPCLICP;
 		ICPResult m_result;
 	};
 

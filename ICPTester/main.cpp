@@ -6,25 +6,20 @@
 using namespace ICPTest;
 using namespace Leviathan;
 
-void ThreadDoICP(const char* DataFolder, const char* icpType)
+void ThreadDoICP(const char* DataFolder, const char* icpType, const char* outputICPResult, int startIndex , int endIndex)
 {
 	EICPTestType type;
 
-	if (0 == strcmp(icpType, "pcl"))
-	{
-		type = EICPTT_PCL;
-	}
+	if (0 == strcmp(icpType, "pcl"))			type = EICPTT_PCL; 
+	if (0 == strcmp(icpType, "trimesh"))		type = EICPTT_TRIMESH; 
 
-	if (0 == strcmp(icpType, "trimesh"))
-	{
-		type = EICPTT_TRIMESH;
-	}
-
-	ICPTester tester(DataFolder, type);
+	ICPTester tester(DataFolder, type, startIndex, endIndex);
 	tester.DoICP();
-	
+
+	if (outputICPResult) tester.ExportICPResultToFile(outputICPResult);
+
 	// Remain resources for a while 
-	Sleep(100000);
+	Sleep(10000);
 }
 
 int main(int argc, char** argv)
@@ -37,7 +32,10 @@ int main(int argc, char** argv)
 	VisualizatorLeviathan renderThread;
 	renderThread.Init();
 
-	std::thread icpthread(ThreadDoICP, argv[1], argv[2]);
+	int startIndex = (argc > 5) ? std::atoi(argv[4]) : -1;
+	int endIndex = (argc > 5) ? std::atoi(argv[5]) : -1;
+
+	std::thread icpthread(ThreadDoICP, argv[1], argv[2], (argc > 3) ? argv[3] : nullptr, startIndex, endIndex);
 	icpthread.detach();
 
 	renderThread.RunRenderThread();
